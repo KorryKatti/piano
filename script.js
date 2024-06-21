@@ -66,8 +66,8 @@ const showHideKeys = () => {
 
 const playSequence = (sequence) => {
     let delay = 0;
-    const noteDelay = 300; // delay between notes in ms
-    const spaceDelay = 300; // additional delay for spaces (pause)
+    const noteDelay = 50; // delay between notes in ms
+    const spaceDelay = 50; // additional delay for spaces (pause)
 
     sequence.forEach((key, index) => {
         if (key === ' ') {
