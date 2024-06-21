@@ -10,7 +10,6 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- https://www.youtube.com/watch?v=Mv1ZYpo8q4g by CodingNepal -->
     <div class="wrapper">
         <header>
             <h2>Piano</h2>
@@ -52,6 +51,14 @@
             <li class="key black" data-key="j"><span>j</span></li>
             <li class="key white" data-key="m"><span>m</span></li>
         </ul>
+        <!-- New section for text input -->
+        <div class="input-section">
+            <textarea id="key-sequence" rows="4" placeholder="Enter key sequence (e.g., qwerty)"></textarea>
+            <button id="play-sequence">Play Sequence</button>
+        </div>
+        <div class="link-section">
+            <a href="note/all.html" target="_blank">Piano Notes</a>
+        </div>
     </div>
     <div id="hint">Play TTYTIU or IPC!</div>    
 </body>

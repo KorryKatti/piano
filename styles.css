@@ -134,6 +134,54 @@ header .column span {
     display: none;
 }
 
+.input-section {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-section textarea {
+    width: 100%;
+    max-width: 800px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    resize: none;
+}
+
+.input-section button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.input-section button:hover {
+    background-color: #45a049;
+}
+
+.link-section {
+    margin-top: 20px;
+}
+
+.link-section a {
+    color: #1e90ff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.link-section a:hover {
+    color: #1c86ee;
+}
+
 #hint {
     margin-top: 2%;
     color: #ffffff;
@@ -141,4 +189,4 @@ header .column span {
 
 #hint:hover {
     color: #000000;
-}
+} 
