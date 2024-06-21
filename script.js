@@ -1,22 +1,22 @@
 const pianoKeys = document.querySelectorAll(".piano-keys .key"),
-volumeSlider = document.querySelector(".volume-slider input"),
-keysCheckbox = document.querySelector(".keys-checkbox input");
+    volumeSlider = document.querySelector(".volume-slider input"),
+    keysCheckbox = document.querySelector(".keys-checkbox input"),
+    playSequenceButton = document.getElementById("play-sequence"),
+    keySequenceTextarea = document.getElementById("key-sequence");
 
 let allKeys = [],
-playedKeys = [],
-currentVolume = 0.5;
+    playedKeys = [],
+    currentVolume = 0.5;
 
 const playTune = (key) => {
-
     let audio = new Audio(`notes/${key}.mp3`); // audio src based on key
     audio.volume = currentVolume;
     audio.play(); // play audio
     playedKeys.push(key);
-    // console.log(playedKeys);
 
     var sliced = playedKeys.slice(playedKeys.length - 6, playedKeys.length),
-    comb = ['t', 't', 'y', 't', 'i', 'u'],
-    dre = ['i', 'p', 'c'];
+        comb = ['t', 't', 'y', 't', 'i', 'u'],
+        dre = ['i', 'p', 'c'];
 
     if (sliced.toString() === comb.toString()) {
         play();
@@ -41,10 +41,10 @@ pianoKeys.forEach(key => {
 });
 
 function delayDispatchKeyboardEvent(key, delay) {
-    setTimeout(function() {
-        document.dispatchEvent(new KeyboardEvent("keydown", {
-            key: key
-        }));
+    setTimeout(function () {
+        if (key !== ' ') {
+            document.dispatchEvent(new KeyboardEvent("keydown", { key: key }));
+        }
         playedKeys = [];
     }, delay);
 }
@@ -64,56 +64,25 @@ const showHideKeys = () => {
     pianoKeys.forEach(key => key.classList.toggle("hide"));
 }
 
-const play = () => {
-    delayDispatchKeyboardEvent("t", 300);
-    delayDispatchKeyboardEvent("t", 600);
-    delayDispatchKeyboardEvent("y", 1000);
-    delayDispatchKeyboardEvent("t", 1500);
-    delayDispatchKeyboardEvent("o", 2000);
-    delayDispatchKeyboardEvent("i", 2500);
-    delayDispatchKeyboardEvent("t", 3000);
-    delayDispatchKeyboardEvent("t", 3300);
-    delayDispatchKeyboardEvent("x", 3700);
-    delayDispatchKeyboardEvent("p", 4200);
-    delayDispatchKeyboardEvent("i", 4600);
-    delayDispatchKeyboardEvent("u", 5000);
-    delayDispatchKeyboardEvent("y", 5450);
-    delayDispatchKeyboardEvent("z", 6000);
-    delayDispatchKeyboardEvent("z", 6300);
-    delayDispatchKeyboardEvent("p", 6800);
-    delayDispatchKeyboardEvent("i", 7400);
-    delayDispatchKeyboardEvent("o", 7900);
-    delayDispatchKeyboardEvent("i", 8500);
+const playSequence = (sequence) => {
+    let delay = 0;
+    const noteDelay = 300; // delay between notes in ms
+    const spaceDelay = 300; // additional delay for spaces (pause)
+
+    sequence.forEach((key, index) => {
+        if (key === ' ') {
+            delay += spaceDelay; // add extra delay for pause
+        } else {
+            delayDispatchKeyboardEvent(key, delay);
+            delay += noteDelay;
+        }
+    });
 }
 
-
-const playDre = () => {
-    let time = 600;
-
-    for (let j = 0; j < 2; j++) {
-        for (let i = 0; i < 8; i++) {
-            delayDispatchKeyboardEvent("i", time);
-            delayDispatchKeyboardEvent("p", time);
-            delayDispatchKeyboardEvent("c", time);
-            time += 300;
-        }
-
-        for (let i = 0; i < 3; i++) {
-            delayDispatchKeyboardEvent("u", time);
-            delayDispatchKeyboardEvent("p", time);
-            delayDispatchKeyboardEvent("c", time);
-            time += 300;
-        }
-        
-        for (let i = 0; i < 5; i++) {
-            delayDispatchKeyboardEvent("u", time);
-            delayDispatchKeyboardEvent("p", time);
-            delayDispatchKeyboardEvent("x", time);
-            time += 300;
-        }
-    }
-}
-
+playSequenceButton.addEventListener("click", () => {
+    const sequence = keySequenceTextarea.value.trim().split('');
+    playSequence(sequence);
+});
 
 document.addEventListener("keydown", pressedKey);
 volumeSlider.addEventListener("input", handleVolume);
