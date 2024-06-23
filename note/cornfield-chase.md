@@ -2,6 +2,7 @@
 
 ## Back to Home
 [Go back to Home](../index.html)
+[All Notes](./all.html)
 
 ## Song
 Watch the video below:
