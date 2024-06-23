@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markdown Links</title>
+    <title>Piano Notes</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,6 +12,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             margin: 0;
         }
@@ -20,6 +21,10 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+            overflow: auto;
         }
         h1 {
             color: #333;
@@ -38,17 +43,44 @@
         a:hover {
             text-decoration: underline;
         }
+        .home-link {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .home-link:hover {
+            background-color: #555;
+        }
+        #content {
+            margin-top: 20px;
+            text-align: left;
+        }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
     <div class="container">
         <h1>Piano Notes</h1>
         <ul>
-            <li><a href="cornfield-chase.md">cornfield-chase interstellar soundtrack</a></li>
-            <!--<li><a href="readme2.md">README 2</a></li>-->
+            <li><a href="#" onclick="loadMarkdown('cornfield-chase.md')">Cornfield Chase - Interstellar Soundtrack</a></li>
             <!-- Add more links as needed -->
         </ul>
-      <a href="../index.html>Go home</a>
+        <a href="../index.html" class="home-link">Go Home</a>
+        <div id="content"></div>
     </div>
+    <script>
+        function loadMarkdown(file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(text => {
+                    document.getElementById('content').innerHTML = marked(text);
+                })
+                .catch(error => console.error('Error fetching the Markdown file:', error));
+        }
+    </script>
 </body>
 </html>
