@@ -73,13 +73,14 @@
         <div id="content"></div>
     </div>
     <script>
-        function loadMarkdown(file) {
-            fetch(file)
-                .then(response => response.text())
-                .then(text => {
-                    document.getElementById('content').innerHTML = marked(text);
-                })
-                .catch(error => console.error('Error fetching the Markdown file:', error));
+        async function loadMarkdown(file) {
+            try {
+                const response = await fetch(file);
+                const text = await response.text();
+                document.getElementById('content').innerHTML = marked.parse(text);
+            } catch (error) {
+                console.error('Error fetching the Markdown file:', error);
+            }
         }
     </script>
 </body>
