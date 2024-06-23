@@ -7,8 +7,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
+            background-color: #1a1a1a; /* Dark background */
+            color: #e0e0e0; /* Light text */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -17,17 +17,17 @@
             margin: 0;
         }
         .container {
-            background-color: #fff;
+            background-color: #333; /* Darker container background */
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             width: 80%;
             max-width: 800px;
             text-align: center;
             overflow: auto;
         }
         h1 {
-            color: #333;
+            color: #66ccff; /* Light blue heading */
         }
         ul {
             list-style-type: none;
@@ -37,7 +37,7 @@
             margin: 10px 0;
         }
         a {
-            color: #1a0dab;
+            color: #4db8ff; /* Light blue link */
             text-decoration: none;
         }
         a:hover {
@@ -47,17 +47,14 @@
             margin-top: 20px;
             display: inline-block;
             padding: 10px 15px;
-            background-color: #333;
-            color: #fff;
+            background-color: #4db8ff; /* Light blue button */
+            color: #1a1a1a; /* Dark text */
             border-radius: 5px;
             text-decoration: none;
+            transition: background-color 0.3s ease;
         }
         .home-link:hover {
-            background-color: #555;
-        }
-        #content {
-            margin-top: 20px;
-            text-align: left;
+            background-color: #1a8cff; /* Darker blue on hover */
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
