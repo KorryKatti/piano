@@ -17,4 +17,4 @@ Watch the video below:
 Here are some piano notes for the song:
 
 ```plaintext
-f         m                     c         m                     b
+c---m-----------c---m-----v-u---m-----------m-----v---b---m-------b---m-------u---m-

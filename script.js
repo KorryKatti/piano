@@ -66,11 +66,11 @@ const showHideKeys = () => {
 
 const playSequence = (sequence) => {
     let delay = 0;
-    const noteDelay = 50; // delay between notes in ms
-    const spaceDelay = 50; // additional delay for spaces (pause)
+    const noteDelay = 100; // delay between notes in ms
+    const spaceDelay = 100; // additional delay for spaces (pause)
 
     sequence.forEach((key, index) => {
-        if (key === ' ') {
+        if (key === '-') {
             delay += spaceDelay; // add extra delay for pause
         } else {
             delayDispatchKeyboardEvent(key, delay);
