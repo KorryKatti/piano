@@ -66,3 +66,47 @@ The following keys correspond to specific piano notes:
 To play a sequence of notes:
 1. Enter the sequence of keys/note names in the input box.
 2. Click the "Play Sequence" button to hear the sequence played.
+3. Each space equals 166ms of pause
+
+
+<!--
+
+green 
+
+c - c
+C - 2
+d - w 
+D - 3
+e - e
+f - r
+F -5
+g -t
+G -6
+a -y
+A -7
+b- u
+
+red
+
+c - i
+C - 9
+d - o 
+D - 0
+e - p
+f - z
+F -S
+g -x
+G -D
+a -c
+A -F
+b- v
+
+orange
+
+c -b
+C - h
+d - n 
+D - j
+e - m
+
+-->
